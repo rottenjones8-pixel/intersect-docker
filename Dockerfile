@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY . .
-RUN dotnet publish "Intersect.Server/Intersect Server.csproj" -c Release -o /app/publish
+RUN dotnet publish "Intersect.Server/Intersect.Server.csproj" -c Release -o /app/publish
 
 # Runtime Stage
 FROM mcr.microsoft.com/dotnet/runtime:8.0 AS final
