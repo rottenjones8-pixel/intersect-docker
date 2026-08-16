@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Example Client Plugin - Part of the Intersect 2D Game Creation Suite</Description>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <RootNamespace>Intersect.Examples.Plugin.Client</RootNamespace>
+    <AssemblyName>Intersect.Examples.Plugin.Client</AssemblyName>
+    <IntersectClientPlugin>true</IntersectClientPlugin>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\join-our-discord.png"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Intersect.Examples.Plugin.Client.Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\join-our-discord.png"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intersect.Examples.Plugin\Intersect.Examples.Plugin.csproj"/>
+  </ItemGroup>
+
+  <!-- This has to go here to pick up IntersectPluginType -->
+  <Import Project="..\IntersectPlugin.props"/>
+
+</Project>

@@ -1,0 +1,19 @@
+<Project>
+
+  <PropertyGroup>
+    <IntersectRepoPath Condition="'$(IntersectRepoPath)' == ''">$(MSBuildProjectDirectory)\..\..</IntersectRepoPath>
+    <_IntersectInRepo>true</_IntersectInRepo>
+  </PropertyGroup>
+
+  <Import Project="../Directory.Build.props" />
+
+  <PropertyGroup>
+    <IntersectRepoPath>$(MSBuildProjectDirectory)\..\..</IntersectRepoPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(IntersectDeveloperTargetsImported)' == ''">
+    <IntersectRepoPath>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\..\..'))</IntersectRepoPath>
+    <IntersectProjectName>$(MSBuildProjectName.Substring(10))</IntersectProjectName>
+  </PropertyGroup>
+
+</Project>

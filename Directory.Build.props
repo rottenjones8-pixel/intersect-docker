@@ -1,0 +1,23 @@
+<Project>
+
+  <PropertyGroup>
+    <IntersectRepoPath Condition="'$(IntersectRepoPath)' == ''">$(MSBuildProjectDirectory)\..</IntersectRepoPath>
+  </PropertyGroup>
+
+  <Import Project=".\Common.props" />
+
+  <Import Condition="Exists('$(IntersectRepoPath)/CustomCommon.props')" Project=".\CustomCommon.props" />
+
+  <Import Project=".\Intersect.props" />
+
+  <PropertyGroup>
+    <IntersectProjectName>$(MSBuildProjectName.Substring(10))</IntersectProjectName>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <NetworkKeyOutputDir>$(IntersectRepoPath)\Intersect.Network\bin\$(IntersectConfiguration)\keys</NetworkKeyOutputDir>
+    <NetworkHandshakePublicKey>$(NetworkKeyOutputDir)\network.handshake.bkey.pub</NetworkHandshakePublicKey>
+    <NetworkHandshakePrivateKey>$(NetworkKeyOutputDir)\network.handshake.bkey</NetworkHandshakePrivateKey>
+  </PropertyGroup>
+
+</Project>
